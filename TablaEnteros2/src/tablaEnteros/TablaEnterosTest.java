@@ -26,18 +26,13 @@ class TablaEnterosTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		System.out.println("Inicio de la prueba");
-		Integer[] elementos = { 1, 2, 3, 4, 5};
+		Integer[] elementos = { 1, 2, 3, 4, 5 };
 		tabla = new TablaEnteros(elementos);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		System.out.println("Final de la prueba");
-	}
-
-	@Test
-	void testTablaEnteros() {
-		fail("Not yet implemented");
 	}
 
 	@Test
@@ -48,12 +43,18 @@ class TablaEnterosTest {
 	@Test
 	void testMayorTabla() {
 		assertEquals(5, tabla.mayorTabla());
-
 	}
 
 	@Test
-	void testPosicionTabla() {
-		fail("Not yet implemented");
+	void testPosicionTabla_1() {
+		assertEquals(2, tabla.posicionTabla(3));
+	}
+
+	@Test
+	void testPosicionTabla_2() {
+		assertThrows(Exception.class, () -> {
+			tabla.posicionTabla(6);
+		});
 	}
 
 }
